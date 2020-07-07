@@ -9,7 +9,7 @@ class Celebview extends StatefulWidget {
 }
 
 class _CelebviewState extends State<Celebview> {
-  bool loading= true;
+  bool loading = true;
   List<Celebmodel> list = new List<Celebmodel>();
 
   @override
@@ -21,19 +21,25 @@ class _CelebviewState extends State<Celebview> {
 
   @override
   Widget build(BuildContext context) {
-    return loading?
-        Container(
-          height: MediaQuery.of(context).size.height,
-          width: MediaQuery.of(context).size.width,
-          color: Colors.black87,
-          child: Center(
-            child: CircularProgressIndicator(),
-          ),
-        ):SingleChildScrollView(
-          child: Container(
+    return loading
+        ? Container(
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            color: Colors.black87,
+            child: Center(
+              child: CircularProgressIndicator(),
+            ),
+          )
+        : SingleChildScrollView(
+            child: Container(
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: NetworkImage(
+                        "https://images.unsplash.com/photo-1582219206256-21f4895531ac?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1476&q=80",
+                      ),
+                      fit: BoxFit.fill)),
               height: MediaQuery.of(context).size.height,
               width: MediaQuery.of(context).size.width,
-              color: Colors.black87,
               child: Column(
                 children: <Widget>[
                   SizedBox(
@@ -80,7 +86,7 @@ class _CelebviewState extends State<Celebview> {
                 ],
               ),
             ),
-    );
+          );
   }
 
   getCeleb() async {
@@ -91,36 +97,44 @@ class _CelebviewState extends State<Celebview> {
       loading = false;
     });
   }
-
 }
 
 class celebtile extends StatelessWidget {
-  final String name,profilepath;
+  final String name, profilepath;
 
-  celebtile({this.name,this.profilepath});
+  celebtile({this.name, this.profilepath});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 10,right: 10),
+      padding: const EdgeInsets.only(left: 10, right: 10),
       child: Container(
         child: Column(
-         children: <Widget>[
-           ClipRRect(
-             child: Image.network(profilepath,height: 120,width: 90,fit: BoxFit.cover,),
-           ),
-           Padding(
-             padding: const EdgeInsets.all(5.0),
-             child: Text(check(name),textAlign: TextAlign.center,style: TextStyle(fontSize: 18,color: Colors.white),),
-           )
-         ],
-       ),
+          children: <Widget>[
+            ClipRRect(
+              child: Image.network(
+                profilepath,
+                height: 120,
+                width: 90,
+                fit: BoxFit.cover,
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(5.0),
+              child: Text(
+                check(name),
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 18, color: Colors.white),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
 
   String check(String name) {
-    name=name.replaceAll(" ","\n");
+    name = name.replaceAll(" ", "\n");
     return name;
   }
 }
