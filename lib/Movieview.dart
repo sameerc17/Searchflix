@@ -88,7 +88,7 @@ class _MovieviewState extends State<Movieview> {
                     color: Colors.white,
                   ),
                   Text(
-                    'UPCOMING MOVIES',
+                    'UPCOMING',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
@@ -132,7 +132,7 @@ class _MovieviewState extends State<Movieview> {
                     color: Colors.white,
                   ),
                   Text(
-                    'POPULAR MOVIES',
+                    'POPULAR',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
@@ -176,7 +176,7 @@ class _MovieviewState extends State<Movieview> {
                     color: Colors.white,
                   ),
                   Text(
-                    'TOP RATED MOVIES',
+                    'TOP RATED',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Colors.white,

@@ -19,7 +19,7 @@ class _HomeState extends State<Home> {
           backgroundColor: Colors.black,
           bottom: TabBar(
             indicatorColor: Colors.pinkAccent,
-            labelColor: Colors.yellowAccent.shade700,
+            labelColor: Colors.limeAccent,
             tabs: [
               Tab(icon: Icon(Icons.home),text: 'HOME',),
               Tab(icon: Icon(Icons.movie),text: 'MOVIES',),

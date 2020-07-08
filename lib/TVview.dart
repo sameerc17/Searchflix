@@ -125,7 +125,7 @@ class _TVviewState extends State<TVview> {
                     color: Colors.white,
                   ),
                   Text(
-                    'POPULAR TV SERIES',
+                    'POPULAR',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
@@ -169,7 +169,7 @@ class _TVviewState extends State<TVview> {
                     color: Colors.white,
                   ),
                   Text(
-                    'TOP RATED TV SERIES',
+                    'TOP RATED',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Colors.white,

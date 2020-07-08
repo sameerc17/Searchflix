@@ -69,7 +69,7 @@ class _CelebviewState extends State<Celebview> {
                     height: 15,
                   ),
                   Container(
-                    height: 200,
+                    height: 165,
                     padding: EdgeInsets.all(5),
                     child: ListView.builder(
                         itemCount: list.length,
@@ -77,9 +77,11 @@ class _CelebviewState extends State<Celebview> {
                         physics: ClampingScrollPhysics(),
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (context, index) {
-                          return celebtile(
-                            name: list[index].name,
-                            profilepath: list[index].profilepath,
+                          return SingleChildScrollView(
+                            child: celebtile(
+                              name: list[index].name,
+                              profilepath: list[index].profilepath,
+                            ),
                           );
                         }),
                   ),
@@ -109,12 +111,13 @@ class celebtile extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 10, right: 10),
       child: Container(
+        color: Colors.black87,
         child: Column(
           children: <Widget>[
             ClipRRect(
               child: Image.network(
                 profilepath,
-                height: 120,
+                height: 115,
                 width: 90,
                 fit: BoxFit.cover,
               ),
@@ -124,7 +127,7 @@ class celebtile extends StatelessWidget {
               child: Text(
                 check(name),
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 18, color: Colors.white),
+                style: TextStyle(fontSize: 16, color: Colors.white,),
               ),
             )
           ],
