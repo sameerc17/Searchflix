@@ -105,7 +105,7 @@ class _MovieviewState extends State<Movieview> {
                     height: 10,
                   ),
                   Container(
-                    height: 165,
+                    height: 160,
                     padding: EdgeInsets.all(5),
                     child: ListView.builder(
                         itemCount: list.length,
@@ -149,7 +149,7 @@ class _MovieviewState extends State<Movieview> {
                     height: 15,
                   ),
                   Container(
-                    height: 165,
+                    height: 160,
                     padding: EdgeInsets.all(5),
                     child: ListView.builder(
                         itemCount: list2.length,
@@ -193,7 +193,7 @@ class _MovieviewState extends State<Movieview> {
                     height: 15,
                   ),
                   Container(
-                    height: 165,
+                    height: 160,
                     padding: EdgeInsets.all(5),
                     child: ListView.builder(
                         itemCount: list3.length,
@@ -270,7 +270,8 @@ class movietile extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 10, right: 10),
       child: Container(
-        color: Colors.black87,
+        width: 90,
+        color: Colors.black38,
         child: Column(
           children: <Widget>[
             ClipRRect(
@@ -296,12 +297,13 @@ class movietile extends StatelessWidget {
                   Icon(
                     Icons.star,
                     color: Colors.yellow,
+                    size: 17,
                   ),
                   SizedBox(
                     width: 5,
                   ),
                   Text(
-                    check(vote_average),
+                    add(vote_average),
                     textAlign: TextAlign.center,
                     style: TextStyle(fontSize: 15, color: Colors.white),
                   ),
@@ -315,7 +317,11 @@ class movietile extends StatelessWidget {
   }
 
   String check(String name) {
-    name = name.replaceAll(" ", "\n");
+//    name = name.replaceAll(" ", "\n");
     return name;
+  }
+
+  String add(String vote_average) {
+    return "  "+vote_average+"/10";
   }
 }

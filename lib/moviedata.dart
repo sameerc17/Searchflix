@@ -68,4 +68,20 @@ class Moviedata{
     });
   }
 
+  List<Moviemodel> list4=[];
+  Future<void> getTrendingmovies() async{
+    String url="https://api.themoviedb.org/3/trending/movie/day?api_key=$api";
+    var response = await http.get(url);
+    var jsonData = jsonDecode(response.body);
+    jsonData["results"].forEach((element){
+      Moviemodel moviemodel=Moviemodel(
+        title: element["title"],
+        poster_path:"https://image.tmdb.org/t/p/w500"+element["poster_path"].toString(),
+        vote_average: element["vote_average"].toString(),
+      );
+      if(element["poster_path"]!="https://image.tmdb.org/t/p/w500")
+        list4.add(moviemodel);
+    });
+  }
+
 }

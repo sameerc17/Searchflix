@@ -70,4 +70,20 @@ class TVdata{
     });
   }
 
+  List<TVmodel> list4=[];
+  Future<void> getTrendingTV() async{
+    String url="https://api.themoviedb.org/3/trending/tv/day?api_key=$api";
+    var response = await http.get(url);
+    var jsonData = jsonDecode(response.body);
+    jsonData["results"].forEach((element){
+      TVmodel tVmodel=TVmodel(
+        name: element["name"],
+        poster_path:"https://image.tmdb.org/t/p/w500"+element["poster_path"].toString(),
+        vote_average: element["vote_average"].toString(),
+      );
+      if(element["poster_path"]!="https://image.tmdb.org/t/p/w500")
+        list4.add(tVmodel);
+    });
+  }
+
 }

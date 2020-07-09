@@ -111,7 +111,7 @@ class celebtile extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 10, right: 10),
       child: Container(
-        color: Colors.black87,
+        color: Colors.black38,
         child: Column(
           children: <Widget>[
             ClipRRect(
@@ -127,7 +127,7 @@ class celebtile extends StatelessWidget {
               child: Text(
                 check(name),
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 16, color: Colors.white,),
+                style: TextStyle(fontSize: 15, color: Colors.white,),
               ),
             )
           ],
