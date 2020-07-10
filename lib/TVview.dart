@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:searchflix/tvdata.dart';
+import 'package:searchflix/tvdetails.dart';
 import 'package:searchflix/tvmodel.dart';
 
 class TVview extends StatefulWidget {
@@ -108,9 +109,10 @@ class _TVviewState extends State<TVview> {
                         itemBuilder: (context, index) {
                           return SingleChildScrollView(
                             child: tvtile(
-                              title: list[index].name,
+                              name: list[index].name,
                               poster_path: list[index].poster_path,
                               vote_average: list[index].vote_average,
+                              id: list[index].id,
                             ),
                           );
                         }),
@@ -152,9 +154,10 @@ class _TVviewState extends State<TVview> {
                         itemBuilder: (context, index) {
                           return SingleChildScrollView(
                             child: tvtile(
-                              title: list2[index].name,
+                              name: list2[index].name,
                               poster_path: list2[index].poster_path,
                               vote_average: list2[index].vote_average,
+                              id: list2[index].id,
                             ),
                           );
                         }),
@@ -196,9 +199,10 @@ class _TVviewState extends State<TVview> {
                         itemBuilder: (context, index) {
                           return SingleChildScrollView(
                             child: tvtile(
-                              title: list3[index].name,
+                              name: list3[index].name,
                               poster_path: list3[index].poster_path,
                               vote_average: list3[index].vote_average,
+                              id: list3[index].id,
                             ),
                           );
                         }),
@@ -262,56 +266,70 @@ class _TVviewState extends State<TVview> {
 }
 
 class tvtile extends StatelessWidget {
-  final String title, poster_path, vote_average;
+  final String name, poster_path, vote_average;
+  final int id;
 
-  tvtile({this.title, this.poster_path, this.vote_average});
+  tvtile({this.name, this.poster_path, this.vote_average,this.id});
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 10, right: 10),
-      child: Container(
-        width: 90,
-        color: Colors.black38,
-        child: Column(
-          children: <Widget>[
-            ClipRRect(
-              child: Image.network(
-                poster_path,
-                height: 100,
-                width: 90,
-                fit: BoxFit.fill,
-              ),
+    return GestureDetector(
+      onTap: () {
+        print(id.toString()+" "+name);
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => TVDetails(
+              id: id,
             ),
-            Padding(
-              padding: const EdgeInsets.all(5.0),
-              child: Text(
-                check(title),
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 15, color: Colors.white),
+          ),
+        );
+      },
+      child: Padding(
+        padding: const EdgeInsets.only(left: 10, right: 10),
+        child: Container(
+          width: 90,
+          color: Colors.black38,
+          child: Column(
+            children: <Widget>[
+              ClipRRect(
+                child: Image.network(
+                  poster_path,
+                  height: 100,
+                  width: 90,
+                  fit: BoxFit.fill,
+                ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(5.0),
-              child: Row(
-                children: <Widget>[
-                  Icon(
-                    Icons.star,
-                    color: Colors.yellow,
-                    size: 17,
-                  ),
-                  SizedBox(
-                    width: 5,
-                  ),
-                  Text(
-                    add(vote_average),
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 15, color: Colors.white),
-                  ),
-                ],
+              Padding(
+                padding: const EdgeInsets.all(5.0),
+                child: Text(
+                  check(name),
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 15, color: Colors.white),
+                ),
               ),
-            )
-          ],
+              Padding(
+                padding: const EdgeInsets.all(5.0),
+                child: Row(
+                  children: <Widget>[
+                    Icon(
+                      Icons.star,
+                      color: Colors.yellow,
+                      size: 17,
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Text(
+                      add(vote_average),
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: 15, color: Colors.white),
+                    ),
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

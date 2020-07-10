@@ -17,7 +17,7 @@ class Celebdata{
     jsonData["results"].forEach((element){
       Celebmodel celebmodel=Celebmodel(
           name: element["name"],
-          profilepath:"https://image.tmdb.org/t/p/w500"+element["profile_path"]
+          profilepath:"https://image.tmdb.org/t/p/w500"+element["profile_path"].toString()
       );
       if(element["profile_path"]!=null)
       list.add(celebmodel);
@@ -31,7 +31,7 @@ class Celebdata{
     jsonData["results"].forEach((element){
       Celebmodel celebmodel=Celebmodel(
           name: element["name"],
-          profilepath:"https://image.tmdb.org/t/p/w500"+element["profile_path"]
+          profilepath:"https://image.tmdb.org/t/p/w500"+element["profile_path"].toString()
       );
       if(element["profile_path"]!=null)
         list2.add(celebmodel);

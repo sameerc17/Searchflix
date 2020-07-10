@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:searchflix/moviedata.dart';
+import 'package:searchflix/moviedetails.dart';
 import 'package:searchflix/moviemodel.dart';
 
 class Movieview extends StatefulWidget {
@@ -45,11 +46,12 @@ class _MovieviewState extends State<Movieview> {
         : SingleChildScrollView(
             child: Container(
               decoration: BoxDecoration(
-                  image: DecorationImage(
-                      image: NetworkImage(
-                        "https://images.unsplash.com/photo-1582219206256-21f4895531ac?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1476&q=80",
-                      ),
-                      fit: BoxFit.fill)),
+                image: DecorationImage(
+                    image: NetworkImage(
+                      "https://images.unsplash.com/photo-1582219206256-21f4895531ac?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1476&q=80",
+                    ),
+                    fit: BoxFit.fill),
+              ),
               child: Column(
                 children: <Widget>[
                   SizedBox(
@@ -118,6 +120,7 @@ class _MovieviewState extends State<Movieview> {
                               title: list[index].title,
                               poster_path: list[index].poster_path,
                               vote_average: list[index].vote_average,
+                              id: list[index].id,
                             ),
                           );
                         }),
@@ -162,6 +165,7 @@ class _MovieviewState extends State<Movieview> {
                               title: list2[index].title,
                               poster_path: list2[index].poster_path,
                               vote_average: list2[index].vote_average,
+                              id: list2[index].id,
                             ),
                           );
                         }),
@@ -206,6 +210,7 @@ class _MovieviewState extends State<Movieview> {
                               title: list3[index].title,
                               poster_path: list3[index].poster_path,
                               vote_average: list3[index].vote_average,
+                              id: list3[index].id,
                             ),
                           );
                         }),
@@ -225,7 +230,6 @@ class _MovieviewState extends State<Movieview> {
     Moviedata moviedata = Moviedata();
     await moviedata.getlatestMovie();
     list0 = moviedata.list0;
-    print(list0.length);
     setState(() {
       loading4 = false;
       oname = list0[0].title;
@@ -262,55 +266,69 @@ class _MovieviewState extends State<Movieview> {
 
 class movietile extends StatelessWidget {
   final String title, poster_path, vote_average;
+  final int id;
 
-  movietile({this.title, this.poster_path, this.vote_average});
+  movietile({this.title, this.poster_path, this.vote_average, this.id});
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 10, right: 10),
-      child: Container(
-        width: 90,
-        color: Colors.black38,
-        child: Column(
-          children: <Widget>[
-            ClipRRect(
-              child: Image.network(
-                poster_path,
-                height: 100,
-                width: 90,
-                fit: BoxFit.fill,
-              ),
+    return GestureDetector(
+      onTap: () {
+        print(id);
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => MovieDetails(
+              id: id,
             ),
-            Padding(
-              padding: const EdgeInsets.all(5.0),
-              child: Text(
-                check(title),
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 15, color: Colors.white),
+          ),
+        );
+      },
+      child: Padding(
+        padding: const EdgeInsets.only(left: 10, right: 10),
+        child: Container(
+          width: 90,
+          color: Colors.black38,
+          child: Column(
+            children: <Widget>[
+              ClipRRect(
+                child: Image.network(
+                  poster_path,
+                  height: 100,
+                  width: 90,
+                  fit: BoxFit.fill,
+                ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(5.0),
-              child: Row(
-                children: <Widget>[
-                  Icon(
-                    Icons.star,
-                    color: Colors.yellow,
-                    size: 17,
-                  ),
-                  SizedBox(
-                    width: 5,
-                  ),
-                  Text(
-                    add(vote_average),
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 15, color: Colors.white),
-                  ),
-                ],
+              Padding(
+                padding: const EdgeInsets.all(5.0),
+                child: Text(
+                  check(title),
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 15, color: Colors.white),
+                ),
               ),
-            )
-          ],
+              Padding(
+                padding: const EdgeInsets.all(5.0),
+                child: Row(
+                  children: <Widget>[
+                    Icon(
+                      Icons.star,
+                      color: Colors.yellow,
+                      size: 17,
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Text(
+                      add(vote_average),
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: 15, color: Colors.white),
+                    ),
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
@@ -322,6 +340,6 @@ class movietile extends StatelessWidget {
   }
 
   String add(String vote_average) {
-    return "  "+vote_average+"/10";
+    return "  " + vote_average + "/10";
   }
 }
