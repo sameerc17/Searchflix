@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:searchflix/celebdata.dart';
+import 'package:searchflix/celebdetails.dart';
 import 'package:searchflix/celebmodel.dart';
 import 'package:searchflix/moviedata.dart';
+import 'package:searchflix/moviedetails.dart';
 import 'package:searchflix/moviemodel.dart';
 import 'package:searchflix/tvdata.dart';
 import 'package:searchflix/tvmodel.dart';
+
+import 'tvdetails.dart';
 
 class Homeview extends StatefulWidget {
   @override
@@ -157,6 +161,7 @@ class _HomeviewState extends State<Homeview> {
                               title: list[index].title,
                               poster_path: list[index].poster_path,
                               vote_average: list[index].vote_average,
+                              id: list[index].id,
                             ),
                           );
                         }),
@@ -198,9 +203,10 @@ class _HomeviewState extends State<Homeview> {
                         itemBuilder: (context, index) {
                           return SingleChildScrollView(
                             child: tvtile(
-                              title: list2[index].name,
+                              name: list2[index].name,
                               poster_path: list2[index].poster_path,
                               vote_average: list2[index].vote_average,
+                              id: list2[index].id,
                             ),
                           );
                         }),
@@ -244,6 +250,7 @@ class _HomeviewState extends State<Homeview> {
                             child: celebtile(
                               name: list3[index].name,
                               profilepath: list3[index].profilepath,
+                              id: list3[index].id,
                             ),
                           );
                         }),
@@ -260,55 +267,69 @@ class _HomeviewState extends State<Homeview> {
 
 class movietile extends StatelessWidget {
   final String title, poster_path, vote_average;
+  final int id;
 
-  movietile({this.title, this.poster_path, this.vote_average});
+  movietile({this.title, this.poster_path, this.vote_average, this.id});
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 10, right: 10),
-      child: Container(
-        width: 90,
-        color: Colors.black38,
-        child: Column(
-          children: <Widget>[
-            ClipRRect(
-              child: Image.network(
-                poster_path,
-                height: 100,
-                width: 90,
-                fit: BoxFit.fill,
-              ),
+    return GestureDetector(
+      onTap: () {
+        print(id);
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => MovieDetails(
+              id: id,
             ),
-            Padding(
-              padding: const EdgeInsets.all(5.0),
-              child: Text(
-                check(title),
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 15, color: Colors.white),
+          ),
+        );
+      },
+      child: Padding(
+        padding: const EdgeInsets.only(left: 10, right: 10),
+        child: Container(
+          width: 90,
+          color: Colors.black38,
+          child: Column(
+            children: <Widget>[
+              ClipRRect(
+                child: Image.network(
+                  poster_path,
+                  height: 100,
+                  width: 90,
+                  fit: BoxFit.fill,
+                ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(5.0),
-              child: Row(
-                children: <Widget>[
-                  Icon(
-                    Icons.star,
-                    color: Colors.yellow,
-                    size: 17,
-                  ),
-                  SizedBox(
-                    width: 5,
-                  ),
-                  Text(
-                    add(vote_average),
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 15, color: Colors.white),
-                  ),
-                ],
+              Padding(
+                padding: const EdgeInsets.all(5.0),
+                child: Text(
+                  check(title),
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 15, color: Colors.white),
+                ),
               ),
-            )
-          ],
+              Padding(
+                padding: const EdgeInsets.all(5.0),
+                child: Row(
+                  children: <Widget>[
+                    Icon(
+                      Icons.star,
+                      color: Colors.yellow,
+                      size: 17,
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Text(
+                      add(vote_average),
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: 15, color: Colors.white),
+                    ),
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
@@ -320,61 +341,75 @@ class movietile extends StatelessWidget {
   }
 
   String add(String vote_average) {
-    return "  "+vote_average+"/10";
+    return "  " + vote_average + "/10";
   }
 }
 
 class tvtile extends StatelessWidget {
-  final String title, poster_path, vote_average;
+  final String name, poster_path, vote_average;
+  final int id;
 
-  tvtile({this.title, this.poster_path, this.vote_average});
+  tvtile({this.name, this.poster_path, this.vote_average,this.id});
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 10, right: 10),
-      child: Container(
-        width: 90,
-        color: Colors.black38,
-        child: Column(
-          children: <Widget>[
-            ClipRRect(
-              child: Image.network(
-                poster_path,
-                height: 100,
-                width: 90,
-                fit: BoxFit.fill,
-              ),
+    return GestureDetector(
+      onTap: () {
+        print(id.toString()+" "+name);
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => TVDetails(
+              id: id,
             ),
-            Padding(
-              padding: const EdgeInsets.all(5.0),
-              child: Text(
-                check(title),
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 15, color: Colors.white),
+          ),
+        );
+      },
+      child: Padding(
+        padding: const EdgeInsets.only(left: 10, right: 10),
+        child: Container(
+          width: 90,
+          color: Colors.black38,
+          child: Column(
+            children: <Widget>[
+              ClipRRect(
+                child: Image.network(
+                  poster_path,
+                  height: 100,
+                  width: 90,
+                  fit: BoxFit.fill,
+                ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(5.0),
-              child: Row(
-                children: <Widget>[
-                  Icon(
-                    Icons.star,
-                    color: Colors.yellow,
-                    size: 17,
-                  ),
-                  SizedBox(
-                    width: 5,
-                  ),
-                  Text(
-                    add(vote_average),
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 15, color: Colors.white),
-                  ),
-                ],
+              Padding(
+                padding: const EdgeInsets.all(5.0),
+                child: Text(
+                  check(name),
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 15, color: Colors.white),
+                ),
               ),
-            )
-          ],
+              Padding(
+                padding: const EdgeInsets.all(5.0),
+                child: Row(
+                  children: <Widget>[
+                    Icon(
+                      Icons.star,
+                      color: Colors.yellow,
+                      size: 17,
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Text(
+                      add(vote_average),
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: 15, color: Colors.white),
+                    ),
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
@@ -392,35 +427,49 @@ class tvtile extends StatelessWidget {
 
 class celebtile extends StatelessWidget {
   final String name, profilepath;
+  final int id;
 
-  celebtile({this.name, this.profilepath});
+  celebtile({this.name, this.profilepath, this.id});
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 10, right: 10),
-      child: Container(
-        width: 90,
-        color: Colors.black38,
-        child: Column(
-          children: <Widget>[
-            ClipRRect(
-              child: Image.network(
-                profilepath,
-                height: 115,
-                width: 90,
-                fit: BoxFit.cover,
+    return GestureDetector(
+      onTap: () {
+        print(id);
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => Celebdetails(id: id),
+          ),
+        );
+      },
+      child: Padding(
+        padding: const EdgeInsets.only(left: 10, right: 10),
+        child: Container(
+          color: Colors.black38,
+          child: Column(
+            children: <Widget>[
+              ClipRRect(
+                child: Image.network(
+                  profilepath,
+                  height: 115,
+                  width: 90,
+                  fit: BoxFit.cover,
+                ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(5.0),
-              child: Text(
-                check(name),
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 15, color: Colors.white,),
-              ),
-            )
-          ],
+              Padding(
+                padding: const EdgeInsets.all(5.0),
+                child: Text(
+                  check(name),
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.white,
+                  ),
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

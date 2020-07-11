@@ -47,7 +47,7 @@ class TVDetailsState extends State<TVDetails> {
                       flex: 5,
                       child: ClipRect(
                         child: Image.network(
-                          list[0].backdrop_path,
+                          list[0].backdrop_path!="https://image.tmdb.org/t/p/w500null"?list[0].backdrop_path:list[0].poster_path,
                           fit: BoxFit.fill,
                           width: MediaQuery.of(context).size.width,
                         ),
