@@ -44,7 +44,7 @@ class _CelebdetailsState extends State<Celebdetails> {
           child: Column(
             children: <Widget>[
               Expanded(
-                flex: 6,
+                flex: 2,
                 child: ClipRect(
                   child: Image.network(
                     list[0].profilepath,
@@ -54,7 +54,7 @@ class _CelebdetailsState extends State<Celebdetails> {
                 ),
               ),
               Expanded(
-                flex: 5,
+                flex: 1,
                 child: SingleChildScrollView(
                   child: Column(
                     children: <Widget>[

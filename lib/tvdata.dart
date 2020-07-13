@@ -36,7 +36,7 @@ class TVdata {
           vote_average: element["vote_average"].toString(),
           id: element["id"],
           first_air_date: element["first_air_date"]);
-      if (element["poster_path"] != "https://image.tmdb.org/t/p/w500")
+      if (tVmodel.poster_path != "https://image.tmdb.org/t/p/w500null")
         list.add(tVmodel);
     });
   }
@@ -55,7 +55,7 @@ class TVdata {
           vote_average: element["vote_average"].toString(),
           id: element["id"],
           first_air_date: element["first_air_date"]);
-      if (element["poster_path"] != "https://image.tmdb.org/t/p/w500")
+      if (tVmodel.poster_path != "https://image.tmdb.org/t/p/w500null")
         list2.add(tVmodel);
     });
   }
@@ -74,7 +74,7 @@ class TVdata {
           vote_average: element["vote_average"].toString(),
           id: element["id"],
           first_air_date: element["first_air_date"]);
-      if (element["poster_path"] != "https://image.tmdb.org/t/p/w500")
+      if (tVmodel.poster_path != "https://image.tmdb.org/t/p/w500null")
         list3.add(tVmodel);
     });
   }
@@ -93,7 +93,7 @@ class TVdata {
           vote_average: element["vote_average"].toString(),
           id: element["id"],
           first_air_date: element["first_air_date"]);
-      if (element["poster_path"] != "https://image.tmdb.org/t/p/w500")
+      if (tVmodel.poster_path != "https://image.tmdb.org/t/p/w500null")
         list4.add(tVmodel);
     });
   }
@@ -118,6 +118,7 @@ class TVdata {
         number_of_seasons: jsonData["number_of_seasons"],
         number_of_episodes: jsonData["number_of_episodes"],
         first_air_date: jsonData["first_air_date"]);
-    list5.add(tVmodel);
+    if (tVmodel.poster_path != "https://image.tmdb.org/t/p/w500null")
+      list5.add(tVmodel);
   }
 }

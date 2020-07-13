@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:searchflix/tvdata.dart';
 import 'package:searchflix/tvdetails.dart';
 import 'package:searchflix/tvmodel.dart';
@@ -75,25 +76,13 @@ class _TVviewState extends State<TVview> {
                   SizedBox(
                     height: 15,
                   ),
-                  Container(
-                    alignment: Alignment.center,
-                    width: 145.0,
-                    height: 2.0,
-                    color: Colors.white,
-                  ),
                   Text(
                     'AIRING TODAY',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                      fontSize: 25.0,
+                    style: GoogleFonts.josefinSlab(
+                        fontSize: 25,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold
                     ),
-                  ),
-                  Container(
-                    alignment: Alignment.center,
-                    width: 145.0,
-                    height: 2.0,
-                    color: Colors.white,
                   ),
                   SizedBox(
                     height: 10,
@@ -118,30 +107,18 @@ class _TVviewState extends State<TVview> {
                         }),
                   ),
                   SizedBox(
-                    height: 15,
-                  ),
-                  Container(
-                    alignment: Alignment.center,
-                    width:210.0,
-                    height: 2.0,
-                    color: Colors.white,
+                    height: 20,
                   ),
                   Text(
                     'POPULAR',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                      fontSize: 25.0,
+                    style: GoogleFonts.josefinSlab(
+                        fontSize: 25,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold
                     ),
                   ),
-                  Container(
-                    alignment: Alignment.center,
-                    width: 210.0,
-                    height: 2.0,
-                    color: Colors.white,
-                  ),
                   SizedBox(
-                    height: 15,
+                    height: 10,
                   ),
                   Container(
                     height: 160,
@@ -163,30 +140,18 @@ class _TVviewState extends State<TVview> {
                         }),
                   ),
                   SizedBox(
-                    height: 15,
-                  ),
-                  Container(
-                    alignment: Alignment.center,
-                    width: 220.0,
-                    height: 2.0,
-                    color: Colors.white,
+                    height: 20,
                   ),
                   Text(
                     'TOP RATED',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                      fontSize: 25.0,
+                    style: GoogleFonts.josefinSlab(
+                        fontSize: 25,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold
                     ),
                   ),
-                  Container(
-                    alignment: Alignment.center,
-                    width: 220.0,
-                    height: 2.0,
-                    color: Colors.white,
-                  ),
                   SizedBox(
-                    height: 15,
+                    height: 10,
                   ),
                   Container(
                     height: 160,
@@ -208,7 +173,7 @@ class _TVviewState extends State<TVview> {
                         }),
                   ),
                   SizedBox(
-                    height: 15,
+                    height: 20,
                   ),
                 ],
               ),

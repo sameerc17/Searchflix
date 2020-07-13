@@ -20,10 +20,9 @@ class Celebdata {
           profilepath: "https://image.tmdb.org/t/p/w500" +
               element["profile_path"].toString(),
           id: element["id"],
-          birthday: element["birthday"],
-          known_for_department: element["known_for_department"],
-          place_of_birth: element["place_of_birth"]);
-      if (element["profile_path"] != null) list.add(celebmodel);
+          known_for_department: element["known_for_department"]);
+      if(celebmodel.profilepath!="https://image.tmdb.org/t/p/w500null")
+        list.add(celebmodel);
     });
   }
 
@@ -38,10 +37,9 @@ class Celebdata {
           profilepath: "https://image.tmdb.org/t/p/w500" +
               element["profile_path"].toString(),
           id: element["id"],
-          birthday: element["birthday"],
-          known_for_department: element["known_for_department"],
-          place_of_birth: element["place_of_birth"]);
-      if (element["profile_path"] != null) list2.add(celebmodel);
+          known_for_department: element["known_for_department"]);
+      if(celebmodel.profilepath!="https://image.tmdb.org/t/p/w500null")
+        list2.add(celebmodel);
     });
   }
 
@@ -60,6 +58,7 @@ class Celebdata {
         birthday: jsonData["birthday"],
         known_for_department: jsonData["known_for_department"],
         place_of_birth: jsonData["place_of_birth"]);
+    if(celebmodel.profilepath!="https://image.tmdb.org/t/p/w500null")
     list3.add(celebmodel);
   }
 

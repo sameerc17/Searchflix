@@ -34,7 +34,7 @@ class Moviedata {
               element["poster_path"].toString(),
           vote_average: element["vote_average"].toString(),
           id: element["id"]);
-      if (element["poster_path"] != "https://image.tmdb.org/t/p/w500")
+      if (moviemodel.poster_path != "https://image.tmdb.org/t/p/w500null")
         list.add(moviemodel);
     });
   }
@@ -52,7 +52,7 @@ class Moviedata {
               element["poster_path"].toString(),
           vote_average: element["vote_average"].toString(),
           id: element["id"]);
-      if (element["poster_path"] != "https://image.tmdb.org/t/p/w500")
+      if (moviemodel.poster_path != "https://image.tmdb.org/t/p/w500null")
         list2.add(moviemodel);
     });
   }
@@ -70,7 +70,7 @@ class Moviedata {
               element["poster_path"].toString(),
           vote_average: element["vote_average"].toString(),
           id: element["id"]);
-      if (element["poster_path"] != "https://image.tmdb.org/t/p/w500")
+      if (moviemodel.poster_path != "https://image.tmdb.org/t/p/w500null")
         list3.add(moviemodel);
     });
   }
@@ -88,7 +88,7 @@ class Moviedata {
               element["poster_path"].toString(),
           vote_average: element["vote_average"].toString(),
           id: element["id"]);
-      if (element["poster_path"] != "https://image.tmdb.org/t/p/w500")
+      if (moviemodel.poster_path != "https://image.tmdb.org/t/p/w500null")
         list4.add(moviemodel);
     });
   }
@@ -113,6 +113,7 @@ class Moviedata {
       release_date: jsonData["release_date"],
       original_language: jsonData["original_language"],
     );
-    list5.add(moviemodel);
+    if (moviemodel.poster_path != "https://image.tmdb.org/t/p/w500null")
+      list5.add(moviemodel);
   }
 }

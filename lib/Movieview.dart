@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:searchflix/moviedata.dart';
 import 'package:searchflix/moviedetails.dart';
 import 'package:searchflix/moviemodel.dart';
@@ -81,27 +82,15 @@ class _MovieviewState extends State<Movieview> {
                     ),
                   ),
                   SizedBox(
-                    height: 15.0,
-                  ),
-                  Container(
-                    alignment: Alignment.center,
-                    width: 195.0,
-                    height: 2.0,
-                    color: Colors.white,
+                    height: 20.0,
                   ),
                   Text(
                     'UPCOMING',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                      fontSize: 25.0,
+                    style: GoogleFonts.josefinSlab(
+                        fontSize: 25,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold
                     ),
-                  ),
-                  Container(
-                    alignment: Alignment.center,
-                    width: 195.0,
-                    height: 2.0,
-                    color: Colors.white,
                   ),
                   SizedBox(
                     height: 10,
@@ -126,30 +115,18 @@ class _MovieviewState extends State<Movieview> {
                         }),
                   ),
                   SizedBox(
-                    height: 15,
-                  ),
-                  Container(
-                    alignment: Alignment.center,
-                    width: 185.0,
-                    height: 2.0,
-                    color: Colors.white,
+                    height: 20,
                   ),
                   Text(
                     'POPULAR',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                      fontSize: 25.0,
+                    style: GoogleFonts.josefinSlab(
+                        fontSize: 25,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold
                     ),
                   ),
-                  Container(
-                    alignment: Alignment.center,
-                    width: 185.0,
-                    height: 2.0,
-                    color: Colors.white,
-                  ),
                   SizedBox(
-                    height: 15,
+                    height: 10,
                   ),
                   Container(
                     height: 160,
@@ -171,30 +148,18 @@ class _MovieviewState extends State<Movieview> {
                         }),
                   ),
                   SizedBox(
-                    height: 15,
-                  ),
-                  Container(
-                    alignment: Alignment.center,
-                    width: 195.0,
-                    height: 2.0,
-                    color: Colors.white,
+                    height: 20,
                   ),
                   Text(
                     'TOP RATED',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                      fontSize: 25.0,
+                    style: GoogleFonts.josefinSlab(
+                        fontSize: 25,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold
                     ),
                   ),
-                  Container(
-                    alignment: Alignment.center,
-                    width: 195.0,
-                    height: 2.0,
-                    color: Colors.white,
-                  ),
                   SizedBox(
-                    height: 15,
+                    height: 10,
                   ),
                   Container(
                     height: 160,
@@ -216,7 +181,7 @@ class _MovieviewState extends State<Movieview> {
                         }),
                   ),
                   SizedBox(
-                    height: 15,
+                    height: 20,
                   ),
                 ],
               ),

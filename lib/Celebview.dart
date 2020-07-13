@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:searchflix/celebdata.dart';
 import 'package:searchflix/celebdetails.dart';
 import 'package:searchflix/celebmodel.dart';
@@ -44,30 +45,18 @@ class _CelebviewState extends State<Celebview> {
               child: Column(
                 children: <Widget>[
                   SizedBox(
-                    height: 15.0,
-                  ),
-                  Container(
-                    alignment: Alignment.center,
-                    width: 255.0,
-                    height: 1.0,
-                    color: Colors.white,
+                    height: 20.0,
                   ),
                   Text(
                     'MOST POPULAR CELEBS',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                      fontSize: 25.0,
+                    style: GoogleFonts.josefinSlab(
+                        fontSize: 25,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold
                     ),
                   ),
-                  Container(
-                    alignment: Alignment.center,
-                    width: 255.0,
-                    height: 1.0,
-                    color: Colors.white,
-                  ),
                   SizedBox(
-                    height: 15,
+                    height: 10,
                   ),
                   Container(
                     height: 165,

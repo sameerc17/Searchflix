@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:searchflix/celebdata.dart';
 import 'package:searchflix/celebdetails.dart';
 import 'package:searchflix/celebmodel.dart';
@@ -92,9 +93,9 @@ class _HomeviewState extends State<Homeview> {
 //                      Color(0xfffdc830)
                         ]),
                       ),
-                      height: 100,
+                      height: 92,
                       child: Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.all(5.0),
                         child: Row(
                           children: <Widget>[
                             Expanded(
@@ -102,7 +103,7 @@ class _HomeviewState extends State<Homeview> {
                               child: Text(
                                 'Tired of searching online\n for what to binge-watch?\n Welcome to SearchFlix\n',
                                 textAlign: TextAlign.center,
-                                style: TextStyle(
+                                style: GoogleFonts.amaranth(
                                     fontSize: 25,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.black87),
@@ -124,25 +125,13 @@ class _HomeviewState extends State<Homeview> {
                   SizedBox(
                     height: 10,
                   ),
-                  Container(
-                    alignment: Alignment.center,
-                    width: 195.0,
-                    height: 2.0,
-                    color: Colors.white,
-                  ),
                   Text(
                     'TRENDING MOVIES',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
+                    style: GoogleFonts.josefinSlab(
+                      fontSize: 25,
                       color: Colors.white,
-                      fontSize: 25.0,
+                      fontWeight: FontWeight.bold
                     ),
-                  ),
-                  Container(
-                    alignment: Alignment.center,
-                    width: 195.0,
-                    height: 2.0,
-                    color: Colors.white,
                   ),
                   SizedBox(
                     height: 10,
@@ -167,27 +156,15 @@ class _HomeviewState extends State<Homeview> {
                         }),
                   ),
                   SizedBox(
-                    height: 10,
-                  ),
-                  Container(
-                    alignment: Alignment.center,
-                    width: 195.0,
-                    height: 2.0,
-                    color: Colors.white,
+                    height: 20,
                   ),
                   Text(
                     'TRENDING TV SERIES',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                      fontSize: 25.0,
+                    style: GoogleFonts.josefinSlab(
+                        fontSize: 25,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold
                     ),
-                  ),
-                  Container(
-                    alignment: Alignment.center,
-                    width: 195.0,
-                    height: 2.0,
-                    color: Colors.white,
                   ),
                   SizedBox(
                     height: 10,
@@ -212,27 +189,15 @@ class _HomeviewState extends State<Homeview> {
                         }),
                   ),
                   SizedBox(
-                    height: 10,
-                  ),
-                  Container(
-                    alignment: Alignment.center,
-                    width: 195.0,
-                    height: 2.0,
-                    color: Colors.white,
+                    height:20,
                   ),
                   Text(
                     'TRENDING CELEBS',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                      fontSize: 25.0,
+                    style: GoogleFonts.josefinSlab(
+                        fontSize: 25,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold
                     ),
-                  ),
-                  Container(
-                    alignment: Alignment.center,
-                    width: 195.0,
-                    height: 2.0,
-                    color: Colors.white,
                   ),
                   SizedBox(
                     height: 10,
@@ -256,7 +221,7 @@ class _HomeviewState extends State<Homeview> {
                         }),
                   ),
                   SizedBox(
-                    height: 15,
+                    height: 20,
                   ),
                 ],
               ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:searchflix/Celebview.dart';
 import 'package:searchflix/HomeView.dart';
 import 'package:searchflix/Movieview.dart';
@@ -16,18 +17,38 @@ class _HomeState extends State<Home> {
       length: 4,
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.black,
+          backgroundColor: Colors.black87,
           bottom: TabBar(
             indicatorColor: Colors.pinkAccent,
-            labelColor: Colors.limeAccent,
+            labelColor: Colors.yellow.shade600,
             tabs: [
-              Tab(icon: Icon(Icons.home),text: 'HOME',),
-              Tab(icon: Icon(Icons.movie),text: 'MOVIES',),
-              Tab(icon: Icon(Icons.tv),text: 'TV SHOWS',),
-              Tab(icon: Icon(Icons.person),text: 'CELEBS',),
+              Tab(
+                icon: Icon(Icons.home),
+                text: 'HOME',
+              ),
+              Tab(
+                icon: Icon(Icons.movie),
+                text: 'MOVIES',
+              ),
+              Tab(
+                icon: Icon(Icons.tv),
+                text: 'TV SHOWS',
+              ),
+              Tab(
+                icon: Icon(Icons.person),
+                text: 'CELEBS',
+              ),
             ],
           ),
-          title: Text('Home page'),
+          title: Text(
+            'SearchFlix',
+            style: GoogleFonts.shojumaru(
+                fontSize: 35,
+                color: Colors.yellow.shade800,
+                letterSpacing: 2,
+                fontWeight: FontWeight.bold),
+          ),
+          centerTitle: true,
         ),
         body: TabBarView(
           children: [
